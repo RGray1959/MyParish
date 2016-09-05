@@ -951,7 +951,7 @@ UPDATE dbo.GoerSenderAmounts SET SupporterId = {1} WHERE SupporterId = {0}", Peo
                 if (!canUserSeeGiving.HasValue)
                 {
                     var sameperson = Util.UserPeopleId == PeopleId;
-                    var infinance = HttpContext.Current.User.IsInRole("Finance")
+                    var infinance = HttpContext.Current.User.IsInRole("FinanceAdmin")
                                     && ((string)HttpContext.Current.Session["testnofinance"]) != "true";
                     var ishead = (new int?[] {
                         Family.HeadOfHouseholdId,

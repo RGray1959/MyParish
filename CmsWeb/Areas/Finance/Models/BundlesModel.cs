@@ -44,6 +44,7 @@ namespace CmsWeb.Areas.Finance.Models
                                     HeaderType = b.HeaderType,
                                     PostingDate = b.PostingDate,
                                     DepositDate = b.DepositDate,
+                                    HeaderDescription = b.HeaderDescription,
                                     TotalBundle = b.TotalBundle,
                                     TotalItems = b.TotalItems,
                                     ItemCount = b.ItemCount ?? 0,
@@ -64,6 +65,11 @@ namespace CmsWeb.Areas.Finance.Models
                     case "Type":
                         q = from b in q
                             orderby b.HeaderType
+                            select b;
+                        break;
+                    case "Description":
+                        q = from b in q
+                            orderby b.HeaderDescription
                             select b;
                         break;
                     case "Deposited":
@@ -106,6 +112,11 @@ namespace CmsWeb.Areas.Finance.Models
                             orderby b.HeaderType descending 
                             select b;
                         break;
+                    case "Description":
+                        q = from b in q
+                            orderby b.HeaderDescription descending
+                            select b;
+                        break;
                     case "Deposited":
                         q = from b in q
                             orderby b.DepositDate descending 
@@ -146,6 +157,7 @@ namespace CmsWeb.Areas.Finance.Models
         public int BundleId { get; set; }
         public DateTime? PostingDate { get; set; }
         public string HeaderType { get; set; }
+        public string HeaderDescription { get; set; }
         public DateTime? DepositDate { get; set; }
         public decimal? TotalBundle { get; set; }
         public decimal? TotalItems { get; set; }

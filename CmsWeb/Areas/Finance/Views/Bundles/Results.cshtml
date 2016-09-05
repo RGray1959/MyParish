@@ -10,11 +10,12 @@
                 <th style="width: 10px;"></th>
                 <th><a href="#" class="sortable">Id</a></th>
                 <th><a href="#" class="sortable">Type</a></th>
+                <th class="text-left">Description</th>
                 <th><a href="#" class="sortable">Deposited</a></th>
                 <th><a href="#" class="sortable">Posted</a></th>
                 <th class="text-right"><a href="#" class="sortable">Total Bundle</a></th>
                 <th class="text-right"><a href="#" class="sortable">Items</a></th>
-                <th class="text-center">Non Tax Deductible</th>
+                <th class="text-center">Non Tax Deduct</th>
                 <th><a href="#" class="sortable">Count</a></th>
                 <th><a href="#" class="sortable">Status</a></th>
             </tr>
@@ -36,6 +37,7 @@
                     </td>
                     <td><a href="/Bundle/@b.BundleId">@b.BundleId</a></td>
                     <td><a href="/PostBundle/FundTotals/@b.BundleId">@b.HeaderType</a></td>
+                    <td>@b.HeaderDescription</td>
                     <td><a href="/FinanceReports/Deposits?dt=@b.DepositDate.ToSortableDate()">@b.DepositDate.FormatDate()</a></td>
                     <td>@b.PostingDate.FormatDate()</td>
                     <td class="text-right">@b.TotalBundle.ToString2("N2")</td>

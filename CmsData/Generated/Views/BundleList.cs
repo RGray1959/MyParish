@@ -29,8 +29,10 @@ namespace CmsData.View
 		private string _Fund;
 		
 		private string _Status;
-		
-		private int? _Open;
+
+        private string _HeaderDescription;
+
+        private int? _Open;
 		
 		private DateTime? _PostingDate;
 		
@@ -165,8 +167,25 @@ namespace CmsData.View
 
 		}
 
-		
-		[Column(Name="open", Storage="_Open", DbType="int")]
+
+        [Column(Name = "HeaderDescription", Storage = "_HeaderDescription", DbType = "nvarchar(80)")]
+        public string HeaderDescription
+        {
+            get
+            {
+                return this._HeaderDescription;
+            }
+
+            set
+            {
+                if (this._HeaderDescription != value)
+                    this._HeaderDescription = value;
+            }
+
+        }
+
+
+        [Column(Name="open", Storage="_Open", DbType="int")]
 		public int? Open
 		{
 			get

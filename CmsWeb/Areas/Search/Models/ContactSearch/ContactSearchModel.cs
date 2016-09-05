@@ -162,6 +162,36 @@ namespace CmsWeb.Areas.Search.Models
                         where c.GiftBagGiven == true
                         select c;
                     break;
+                case "Eucharist Requested":
+                    q = from c in q
+                        where c.EucharistRequested == true
+                        select c;
+                    break;
+                case "No Help Given":
+                    q = from c in q
+                        where c.NoHelpGiven == true
+                        select c;
+                    break;
+                case "Waiting On Client":
+                    q = from c in q
+                        where c.WaitingOnClient == true
+                        select c;
+                    break;
+                case "Followup":
+                    q = from c in q
+                        where c.Followup == true
+                        select c;
+                    break;
+                case "Referred":
+                    q = from c in q
+                        where c.Referred == true
+                        select c;
+                    break;
+                case "Assisted":
+                    q = from c in q
+                        where c.Assisted == true
+                        select c;
+                    break;
             }
             return q;
         }
@@ -222,7 +252,13 @@ namespace CmsWeb.Areas.Search.Models
                                  + (o.LeftMessage == true ? "LM " : "")
                                  + (o.ContactMade == true ? "CM " : "")
                                  + (o.PrayerRequest == true ? "PR " : "")
-                                 + (o.GiftBagGiven == true ? "GB " : ""),
+                                 + (o.GiftBagGiven == true ? "GB " : "")
+                                 + (o.EucharistRequested == true ? "ER " : "")
+                                 + (o.NoHelpGiven == true ? "NG " : "")
+                                 + (o.WaitingOnClient == true ? "WC " : "")
+                                 + (o.Followup == true ? "FO " : "")
+                                 + (o.Referred == true ? "RF " : "")
+                                 + (o.Assisted == true ? "AS " : ""),
                        ContacteeList = string.Join(", ", (from c in DbUtil.Db.Contactees
                                                           where c.ContactId == o.ContactId
                                                           select c.person.Name).Take(3)),

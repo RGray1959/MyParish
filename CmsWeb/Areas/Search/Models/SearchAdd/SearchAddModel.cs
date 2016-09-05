@@ -173,10 +173,6 @@ namespace CmsWeb.Areas.Search.Models
                 p.FamilyId = NextNewFamilyId();
                 p.IsNewFamily = true;
             }
-#if DEBUG
-            p.FirstName = "David";
-            p.LastName = "Carr." + DateTime.Now.Millisecond;
-#endif
             PendingList.Add(p);
             return p;
         }

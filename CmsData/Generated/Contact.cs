@@ -45,18 +45,33 @@ namespace CmsData
 		private bool? _ContactMade;
 		
 		private bool? _GiftBagGiven;
-		
-		private string _Comments;
-		
-		private int? _ModifiedBy;
+
+        private bool? _EucharistRequested;
+
+        private bool? _NoHelpGiven;
+
+        private bool? _WaitingOnClient;
+
+        private bool? _Followup;
+
+        private bool? _Referred;
+
+        private bool? _Assisted;
+
+        private string _Summary;
+
+        private string _Comments;
+
+        private decimal? _AssistAmt;
+
+        private int? _ModifiedBy;
 		
 		private DateTime? _ModifiedDate;
 		
 		private string _LimitToRole;
 		
 		private int? _OrganizationId;
-		
-   		
+		   		
    		private EntitySet< Contactee> _contactees;
 		
    		private EntitySet< Contactor> _contactsMakers;
@@ -122,8 +137,8 @@ namespace CmsData
 		
 		partial void OnGiftBagGivenChanging(bool? value);
 		partial void OnGiftBagGivenChanged();
-		
-		partial void OnCommentsChanging(string value);
+
+        partial void OnCommentsChanging(string value);
 		partial void OnCommentsChanged();
 		
 		partial void OnModifiedByChanging(int? value);
@@ -137,9 +152,33 @@ namespace CmsData
 		
 		partial void OnOrganizationIdChanging(int? value);
 		partial void OnOrganizationIdChanged();
-		
-    #endregion
-		public Contact()
+
+        partial void OnReferredChanging(bool? value);
+        partial void OnReferredChanged();
+
+        partial void OnAssistedChanging(bool? value);
+        partial void OnAssistedChanged();
+
+        partial void OnWaitingOnClientChanging(bool? value);
+        partial void OnWaitingOnClientChanged();
+
+        partial void OnNoHelpGivenChanging(bool? value);
+        partial void OnNoHelpGivenChanged();
+
+        partial void OnFollowupChanging(bool? value);
+        partial void OnFollowupChanged();
+
+        partial void OnEucharistRequestedChanging(bool? value);
+        partial void OnEucharistRequestedChanged();
+
+        partial void OnSummaryChanging(string value);
+        partial void OnSummaryChanged();
+
+        partial void OnAssistAmtChanging(decimal? value);
+        partial void OnAssistAmtChanged();
+
+        #endregion
+        public Contact()
 		{
 			
 			this._contactees = new EntitySet< Contactee>(new Action< Contactee>(this.attach_contactees), new Action< Contactee>(this.detach_contactees)); 
@@ -484,8 +523,175 @@ namespace CmsData
 
 		}
 
-		
-		[Column(Name="Comments", UpdateCheck=UpdateCheck.Never, Storage="_Comments", DbType="nvarchar")]
+        [Column(Name = "Referred", UpdateCheck = UpdateCheck.Never, Storage = "_Referred", DbType = "bit")]
+        public bool? Referred
+        {
+            get { return this._Referred; }
+
+            set
+            {
+                if (this._Referred != value)
+                {
+
+                    this.OnReferredChanging(value);
+                    this.SendPropertyChanging();
+                    this._Referred = value;
+                    this.SendPropertyChanged("Referred");
+                    this.OnReferredChanged();
+                }
+
+            }
+
+        }
+
+        [Column(Name = "Assisted", UpdateCheck = UpdateCheck.Never, Storage = "_Assisted", DbType = "bit")]
+        public bool? Assisted
+        {
+            get { return this._Assisted; }
+
+            set
+            {
+                if (this._Assisted != value)
+                {
+
+                    this.OnAssistedChanging(value);
+                    this.SendPropertyChanging();
+                    this._Assisted = value;
+                    this.SendPropertyChanged("Assisted");
+                    this.OnAssistedChanged();
+                }
+
+            }
+
+        }
+
+        [Column(Name = "WaitingOnClient", UpdateCheck = UpdateCheck.Never, Storage = "_WaitingOnClient", DbType = "bit")]
+        public bool? WaitingOnClient
+        {
+            get { return this._WaitingOnClient; }
+
+            set
+            {
+                if (this._WaitingOnClient != value)
+                {
+
+                    this.OnWaitingOnClientChanging(value);
+                    this.SendPropertyChanging();
+                    this._WaitingOnClient = value;
+                    this.SendPropertyChanged("WaitingOnClient");
+                    this.OnWaitingOnClientChanged();
+                }
+
+            }
+
+        }
+
+        [Column(Name = "NoHelpGiven", UpdateCheck = UpdateCheck.Never, Storage = "_NoHelpGiven", DbType = "bit")]
+        public bool? NoHelpGiven
+        {
+            get { return this._NoHelpGiven; }
+
+            set
+            {
+                if (this._NoHelpGiven != value)
+                {
+
+                    this.OnNoHelpGivenChanging(value);
+                    this.SendPropertyChanging();
+                    this._NoHelpGiven = value;
+                    this.SendPropertyChanged("NoHelpGiven");
+                    this.OnNoHelpGivenChanged();
+                }
+
+            }
+
+        }
+
+        [Column(Name = "Followup", UpdateCheck = UpdateCheck.Never, Storage = "_Followup", DbType = "bit")]
+        public bool? Followup
+        {
+            get { return this._Followup; }
+
+            set
+            {
+                if (this._Followup != value)
+                {
+
+                    this.OnFollowupChanging(value);
+                    this.SendPropertyChanging();
+                    this._Followup = value;
+                    this.SendPropertyChanged("Followup");
+                    this.OnFollowupChanged();
+                }
+
+            }
+
+        }
+
+        [Column(Name = "EucharistRequested", UpdateCheck = UpdateCheck.Never, Storage = "_EucharistRequested", DbType = "bit")]
+        public bool? EucharistRequested
+        {
+            get { return this._EucharistRequested; }
+
+            set
+            {
+                if (this._EucharistRequested != value)
+                {
+
+                    this.OnEucharistRequestedChanging(value);
+                    this.SendPropertyChanging();
+                    this._EucharistRequested = value;
+                    this.SendPropertyChanged("EucharistRequested");
+                    this.OnEucharistRequestedChanged();
+                }
+
+            }
+
+        }
+
+        [Column(Name = "Summary", UpdateCheck = UpdateCheck.Never, Storage = "_Summary", DbType = "nvarchar(50)")]
+        public string Summary
+        {
+            get { return this._Summary; }
+
+            set
+            {
+                if (this._Summary != value)
+                {
+
+                    this.OnSummaryChanging(value);
+                    this.SendPropertyChanging();
+                    this._Summary = value;
+                    this.SendPropertyChanged("Summary");
+                    this.OnSummaryChanged();
+                }
+
+            }
+
+        }
+
+        [Column(Name = "AssistAmt", UpdateCheck = UpdateCheck.Never, Storage = "_AssistAmt", DbType = "decimal")]
+        public decimal? AssistAmt
+        {
+            get { return this._AssistAmt; }
+
+            set
+            {
+                if (this._AssistAmt != value)
+                {
+
+                    this.OnAssistAmtChanging(value);
+                    this.SendPropertyChanging();
+                    this._AssistAmt = value;
+                    this.SendPropertyChanged("AssistAmt");
+                    this.OnAssistAmtChanged();
+                }
+
+            }
+
+        }
+
+        [Column(Name="Comments", UpdateCheck=UpdateCheck.Never, Storage="_Comments", DbType="nvarchar")]
 		public string Comments
 		{
 			get { return this._Comments; }
@@ -506,7 +712,6 @@ namespace CmsData
 
 		}
 
-		
 		[Column(Name="ModifiedBy", UpdateCheck=UpdateCheck.Never, Storage="_ModifiedBy", DbType="int")]
 		public int? ModifiedBy
 		{

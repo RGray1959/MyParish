@@ -34,31 +34,27 @@
 
                 </div>
                 <div class="col-sm-12">
-                    @if (Model.NotAtHome)
+                    @if (Model.NoHelpGiven)
                     {
-                        <span class="label label-success"><i class="fa fa-check"></i>&nbsp;&nbsp;@Html.DisplayNameFor(m => m.NotAtHome)</span>
+                        <span class="label label-success"><i class="fa fa-check"></i>&nbsp;&nbsp;@Html.DisplayNameFor(m => m.NoHelpGiven)</span>
                     }
-                    @if (Model.LeftDoorHanger)
+                    @if (Model.WaitingOnClient)
                     {
-                        <span class="label label-success"><i class="fa fa-check"></i>&nbsp;&nbsp;@Html.DisplayNameFor(m => m.LeftDoorHanger)</span>
+                        <span class="label label-success"><i class="fa fa-check"></i>&nbsp;&nbsp;@Html.DisplayNameFor(m => m.WaitingOnClient)</span>
                     }
-                    @if (Model.LeftMessage)
+                    @if (Model.Followup)
                     {
-                        <span class="label label-success"><i class="fa fa-check"></i>&nbsp;&nbsp;@Html.DisplayNameFor(m => m.LeftMessage)</span>
+                        <span class="label label-success"><i class="fa fa-check"></i>&nbsp;&nbsp;@Html.DisplayNameFor(m => m.Followup)</span>
                     }
-                    @if (Model.ContactMade)
+                    @if (Model.Referred)
                     {
-                        <span class="label label-success"><i class="fa fa-check"></i>&nbsp;&nbsp;@Html.DisplayNameFor(m => m.ContactMade)</span>
+                        <span class="label label-success"><i class="fa fa-check"></i>&nbsp;&nbsp;@Html.DisplayNameFor(m => m.Referred)</span>
                     }
-                    @if (Model.GospelShared)
+                    @if (Model.Assisted)
                     {
-                        <span class="label label-success"><i class="fa fa-check"></i>&nbsp;&nbsp;@Html.DisplayNameFor(m => m.GospelShared)</span>
+                        <span class="label label-success"><i class="fa fa-check"></i>&nbsp;&nbsp;@Html.DisplayNameFor(m => m.Assisted)</span>
                     }
-                    @if (Model.PrayerRequest)
-                    {
-                        <span class="label label-success"><i class="fa fa-check"></i>&nbsp;&nbsp;@Html.DisplayNameFor(m => m.PrayerRequest)</span>
-                    }
-                    @if (Model.GiftBagGiven)
+                    @if (Model.EucharistRequested)
                     {
                         <span class="label label-success"><i class="fa fa-check"></i>&nbsp;&nbsp;@Html.DisplayNameFor(m => m.GiftBagGiven)</span>
                     }
@@ -66,6 +62,8 @@
                 @if (Model.CanViewComments && !string.IsNullOrWhiteSpace(Model.Comments))
                 {
                     <div class="col-sm-12">
+                        @Html.DisplayFor(m => m.Summary)
+                        @Html.DisplayFor(m => m.AssistAmt)
                         <p>
                             @Html.DisplayFor(m => m.Comments, "TextArea", new { prewrap })
                         </p>

@@ -577,7 +577,13 @@ namespace CmsWeb.Code
                 new CodeValueItem {Value = "Contact Made"},
                 new CodeValueItem {Value = "Gospel Shared"},
                 new CodeValueItem {Value = "Prayer Request Received"},
-                new CodeValueItem {Value = "Gift Bag Given"}
+                new CodeValueItem {Value = "Gift Bag Given"},
+                new CodeValueItem {Value = "Eucharist Requested"},
+                new CodeValueItem {Value = "No Help Given"},
+                new CodeValueItem {Value = "Waiting On Client"},
+                new CodeValueItem {Value = "Followup"},
+                new CodeValueItem {Value = "Referred"},
+                new CodeValueItem {Value = "Assisted"}
             };
         }
 

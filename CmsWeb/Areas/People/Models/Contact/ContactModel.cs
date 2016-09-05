@@ -33,6 +33,14 @@ namespace CmsWeb.Areas.People.Models
         [DisplayName("Prayer Request Received")]
         public bool PrayerRequest { get; set; }
         public bool GiftBagGiven { get; set; }
+        public bool EucharistRequested { get; set; }
+        public bool NoHelpGiven { get; set; }
+        public bool WaitingOnClient { get; set; }
+        public bool Followup { get; set; }
+        public bool Referred { get; set; }
+        public bool Assisted { get; set; }
+        public string Summary { get; set; }
+        public decimal AssistAmt { get; set; }
 
         [UIHint("TextArea")]
         public string Comments { get; set; }

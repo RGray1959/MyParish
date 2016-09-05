@@ -60,6 +60,7 @@ namespace CmsWeb.Areas.Finance.Models
                          {
                              Status = bb.BundleStatusType.Description,
                              Type = bb.BundleHeaderType.Description,
+                             HeaderDescription = bb.HeaderDescription,
                              DefaultFund = bb.Fund.FundName,
                              bundle = bb
                          }).SingleOrDefault();
@@ -73,6 +74,7 @@ namespace CmsWeb.Areas.Finance.Models
         }
 
         public string Status;
+        public string HeaderDescription;
         public string Type;
         public string DefaultFund;
 

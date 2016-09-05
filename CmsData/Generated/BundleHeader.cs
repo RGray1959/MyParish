@@ -33,8 +33,10 @@ namespace CmsData
 		private DateTime _ContributionDate;
 		
 		private int _BundleHeaderTypeId;
-		
-		private DateTime? _DepositDate;
+
+        private string _HeaderDescription;
+
+        private DateTime? _DepositDate;
 		
 		private decimal? _BundleTotal;
 		
@@ -90,8 +92,11 @@ namespace CmsData
 		
 		partial void OnBundleHeaderTypeIdChanging(int value);
 		partial void OnBundleHeaderTypeIdChanged();
-		
-		partial void OnDepositDateChanging(DateTime? value);
+
+        partial void OnHeaderDescriptionChanging(string value);
+        partial void OnHeaderDescriptionChanged();
+
+        partial void OnDepositDateChanging(DateTime? value);
 		partial void OnDepositDateChanged();
 		
 		partial void OnBundleTotalChanging(decimal? value);
@@ -269,8 +274,30 @@ namespace CmsData
 
 		}
 
-		
-		[Column(Name="ContributionDate", UpdateCheck=UpdateCheck.Never, Storage="_ContributionDate", DbType="datetime NOT NULL")]
+
+        [Column(Name = "HeaderDescription", UpdateCheck = UpdateCheck.Never, Storage = "_HeaderDescription", DbType = "nvarchar(80)")]
+        public string HeaderDescription
+        {
+            get { return this._HeaderDescription; }
+
+            set
+            {
+                if (this._HeaderDescription != value)
+                {
+
+                    this.OnHeaderDescriptionChanging(value);
+                    this.SendPropertyChanging();
+                    this._HeaderDescription = value;
+                    this.SendPropertyChanged("HeaderDescription");
+                    this.OnHeaderDescriptionChanged();
+                }
+
+            }
+
+        }
+
+
+        [Column(Name="ContributionDate", UpdateCheck=UpdateCheck.Never, Storage="_ContributionDate", DbType="datetime NOT NULL")]
 		public DateTime ContributionDate
 		{
 			get { return this._ContributionDate; }
